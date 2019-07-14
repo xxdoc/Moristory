@@ -51,12 +51,12 @@ Option Explicit
 'Point Structure
 Public Type POINTL
     X As Long
-    Y As Long
+    y As Long
 End Type
 
 Public Type POINTF
     X As Single
-    Y As Single
+    y As Single
 End Type
 
 '=================================
@@ -158,7 +158,7 @@ End Type
 'Encoder
 Public Type clsid
     Data1         As Long
-    Data2         As Integer
+    data2         As Integer
     Data3         As Integer
     Data4(0 To 7) As Byte
 End Type
@@ -412,11 +412,11 @@ Public Declare Function GdipGetCompositingMode _
 Public Declare Function GdipSetRenderingOrigin _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long) As GpStatus
+                              ByVal y As Long) As GpStatus
 Public Declare Function GdipGetRenderingOrigin _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               X As Long, _
-                              Y As Long) As GpStatus
+                              y As Long) As GpStatus
 Public Declare Function GdipSetCompositingQuality _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal CompositingQlty As CompositingQuality) As GpStatus
@@ -437,10 +437,10 @@ Public Declare Function GdipGetPixelOffsetMode _
                               PixOffsetMode As PixelOffsetMode) As GpStatus
 Public Declare Function GdipSetTextRenderingHint _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              ByVal Mode As TextRenderingHint) As GpStatus
+                              ByVal mode As TextRenderingHint) As GpStatus
 Public Declare Function GdipGetTextRenderingHint _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              Mode As TextRenderingHint) As GpStatus
+                              mode As TextRenderingHint) As GpStatus
 Public Declare Function GdipSetTextContrast _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Contrast As Long) As GpStatus
@@ -500,7 +500,7 @@ Public Declare Function GdipGetDpiX _
 Public Declare Function GdipGetDpiY _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               DPI As Single) As GpStatus
-Public Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Public Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
 
 Public Declare Function GdipTransformPoints _
                Lib "gdiplus" (ByVal Graphics As Long, _
@@ -542,20 +542,20 @@ Public Declare Function GdipSetClipGraphics _
 Public Declare Function GdipSetClipRect _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal CombineMd As CombineMode) As GpStatus
 Public Declare Function GdipSetClipRectI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal CombineMd As CombineMode) As GpStatus
 Public Declare Function GdipSetClipPath _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              ByVal path As Long, _
+                              ByVal Path As Long, _
                               ByVal CombineMd As CombineMode) As GpStatus
 Public Declare Function GdipSetClipRegion _
                Lib "gdiplus" (ByVal Graphics As Long, _
@@ -601,52 +601,52 @@ Public Declare Function GdipIsVisibleClipEmpty _
 Public Declare Function GdipIsVisiblePoint _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisiblePointI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisibleRect _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisibleRectI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               result As Long) As GpStatus
 
 Public Declare Function GdipSaveGraphics _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              state As Long) As GpStatus
+                              State As Long) As GpStatus
 Public Declare Function GdipRestoreGraphics _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              ByVal state As Long) As GpStatus
+                              ByVal State As Long) As GpStatus
 Public Declare Function GdipBeginContainer _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               dstRect As RECTF, _
                               srcRect As RECTF, _
                               ByVal unit As GpUnit, _
-                              state As Long) As GpStatus
+                              State As Long) As GpStatus
 Public Declare Function GdipBeginContainerI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               dstRect As RECTL, _
                               srcRect As RECTL, _
                               ByVal unit As GpUnit, _
-                              state As Long) As GpStatus
+                              State As Long) As GpStatus
 Public Declare Function GdipBeginContainer2 _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              state As Long) As GpStatus
+                              State As Long) As GpStatus
 Public Declare Function GdipEndContainer _
                Lib "gdiplus" (ByVal Graphics As Long, _
-                              ByVal state As Long) As GpStatus
+                              ByVal State As Long) As GpStatus
 
 '==================================================
 
@@ -694,7 +694,7 @@ Public Declare Function GdipDrawArc _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal startAngle As Single, _
@@ -703,7 +703,7 @@ Public Declare Function GdipDrawArcI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal startAngle As Single, _
@@ -763,14 +763,14 @@ Public Declare Function GdipDrawRectangle _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipDrawRectangleI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 Public Declare Function GdipDrawRectangles _
@@ -788,14 +788,14 @@ Public Declare Function GdipFillRectangle _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipFillRectangleI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 Public Declare Function GdipFillRectangles _
@@ -815,14 +815,14 @@ Public Declare Function GdipDrawEllipse _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipDrawEllipseI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 
@@ -830,14 +830,14 @@ Public Declare Function GdipFillEllipse _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipFillEllipseI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 
@@ -847,7 +847,7 @@ Public Declare Function GdipDrawPie _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal startAngle As Single, _
@@ -856,7 +856,7 @@ Public Declare Function GdipDrawPieI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal startAngle As Single, _
@@ -866,7 +866,7 @@ Public Declare Function GdipFillPie _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal startAngle As Single, _
@@ -875,7 +875,7 @@ Public Declare Function GdipFillPieI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal startAngle As Single, _
@@ -967,12 +967,12 @@ Public Declare Function GdipFillPolygon2I_ _
 Public Declare Function GdipDrawPath _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Pen As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 
 Public Declare Function GdipFillPath _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal brush As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 
 '==================================================
 
@@ -1192,25 +1192,25 @@ Public Declare Function GdipDrawImage _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single) As GpStatus
+                              ByVal y As Single) As GpStatus
 Public Declare Function GdipDrawImageI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long) As GpStatus
+                              ByVal y As Long) As GpStatus
 
 Public Declare Function GdipDrawImageRect _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipDrawImageRectI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 Public Declare Function GdipDrawImagePoints _
@@ -1241,7 +1241,7 @@ Public Declare Function GdipDrawImagePointRect _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal SrcX As Single, _
                               ByVal SrcY As Single, _
                               ByVal srcWidth As Single, _
@@ -1251,7 +1251,7 @@ Public Declare Function GdipDrawImagePointRectI _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Image As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal SrcX As Long, _
                               ByVal SrcY As Long, _
                               ByVal srcWidth As Long, _
@@ -1331,19 +1331,19 @@ Public Declare Function GdipDrawImagePointsRectI_ _
 
 Public Declare Function GdipGetImageDecoders _
                Lib "gdiplus" (ByVal numDecoders As Long, _
-                              ByVal Size As Long, _
+                              ByVal size As Long, _
                               decoders As Any) As GpStatus
 Public Declare Function GdipGetImageEncodersSize _
                Lib "gdiplus" (numEncoders As Long, _
-                              Size As Long) As GpStatus
+                              size As Long) As GpStatus
 Public Declare Function GdipGetImageEncoders _
                Lib "gdiplus" (ByVal numEncoders As Long, _
-                              ByVal Size As Long, _
+                              ByVal size As Long, _
                               encoders As Any) As GpStatus
 Public Declare Function GdipComment _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal sizeData As Long, _
-                              data As Any) As GpStatus
+                              Data As Any) As GpStatus
 
 Public Declare Function GdipLoadImageFromFile _
                Lib "gdiplus" (ByVal filename As Long, _
@@ -1365,7 +1365,7 @@ Public Declare Function GdipCloneImage _
 Public Declare Function GdipSaveImageToFile _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal filename As Long, _
-                              clsidEncoder As Any, _
+                              clsidEncoder As clsid, _
                               encoderParams As Any) As GpStatus
 Public Declare Function GdipSaveImageToStream _
                Lib "gdiplus" (ByVal Image As Long, _
@@ -1423,11 +1423,11 @@ Public Declare Function GdipGetImageThumbnail _
 Public Declare Function GdipGetEncoderParameterListSize _
                Lib "gdiplus" (ByVal Image As Long, _
                               clsidEncoder As clsid, _
-                              Size As Long) As GpStatus
+                              size As Long) As GpStatus
 Public Declare Function GdipGetEncoderParameterList _
                Lib "gdiplus" (ByVal Image As Long, _
                               clsidEncoder As clsid, _
-                              ByVal Size As Long, _
+                              ByVal size As Long, _
                               Buffer As EncoderParameters) As GpStatus
 
 Public Declare Function GdipImageGetFrameDimensionsCount _
@@ -1451,13 +1451,13 @@ Public Declare Function GdipImageRotateFlip _
 Public Declare Function GdipGetImagePalette _
                Lib "gdiplus" (ByVal Image As Long, _
                               palette As ColorPalette, _
-                              ByVal Size As Long) As GpStatus
+                              ByVal size As Long) As GpStatus
 Public Declare Function GdipSetImagePalette _
                Lib "gdiplus" (ByVal Image As Long, _
                               palette As ColorPalette) As GpStatus
 Public Declare Function GdipGetImagePaletteSize _
                Lib "gdiplus" (ByVal Image As Long, _
-                              Size As Long) As GpStatus
+                              size As Long) As GpStatus
 Public Declare Function GdipGetPropertyCount _
                Lib "gdiplus" (ByVal Image As Long, _
                               numOfProperty As Long) As GpStatus
@@ -1468,7 +1468,7 @@ Public Declare Function GdipGetPropertyIdList _
 Public Declare Function GdipGetPropertyItemSize _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal propId As Long, _
-                              Size As Long) As GpStatus
+                              size As Long) As GpStatus
 Public Declare Function GdipGetPropertyItem _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal propId As Long, _
@@ -1783,7 +1783,7 @@ Public Declare Function GdipCreateBitmapFromResource _
 
 Public Declare Function GdipCloneBitmapArea _
                Lib "gdiplus" (ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal PixelFormat As GpPixelFormat, _
@@ -1791,7 +1791,7 @@ Public Declare Function GdipCloneBitmapArea _
                               dstBitmap As Long) As GpStatus
 Public Declare Function GdipCloneBitmapAreaI _
                Lib "gdiplus" (ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal PixelFormat As GpPixelFormat, _
@@ -1811,12 +1811,12 @@ Public Declare Function GdipBitmapUnlockBits _
 Public Declare Function GdipBitmapGetPixel _
                Lib "gdiplus" (ByVal bitmap As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               Color As Long) As GpStatus
 Public Declare Function GdipBitmapSetPixel _
                Lib "gdiplus" (ByVal bitmap As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Color As Long) As GpStatus
 
 Public Declare Function GdipBitmapSetResolution _
@@ -1834,7 +1834,7 @@ Public Declare Function GdipDrawCachedBitmap _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal cachedBitmap As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long) As GpStatus
+                              ByVal y As Long) As GpStatus
 
 '==================================================
 
@@ -1886,14 +1886,14 @@ Public Declare Function GdipCreateLineBrushFromRect _
                Lib "gdiplus" (RECT As RECTF, _
                               ByVal color1 As Long, _
                               ByVal color2 As Long, _
-                              ByVal Mode As LinearGradientMode, _
+                              ByVal mode As LinearGradientMode, _
                               ByVal WrapMd As WrapMode, _
                               lineGradient As Long) As GpStatus
 Public Declare Function GdipCreateLineBrushFromRectI _
                Lib "gdiplus" (RECT As RECTL, _
                               ByVal color1 As Long, _
                               ByVal color2 As Long, _
-                              ByVal Mode As LinearGradientMode, _
+                              ByVal mode As LinearGradientMode, _
                               ByVal WrapMd As WrapMode, _
                               lineGradient As Long) As GpStatus
 Public Declare Function GdipCreateLineBrushFromRectWithAngle _
@@ -2034,7 +2034,7 @@ Public Declare Function GdipCreateTexture2 _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal WrapMd As WrapMode, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               texture As Long) As GpStatus
@@ -2042,7 +2042,7 @@ Public Declare Function GdipCreateTextureIA _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal imageAttributes As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               texture As Long) As GpStatus
@@ -2050,7 +2050,7 @@ Public Declare Function GdipCreateTexture2I _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal WrapMd As WrapMode, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               texture As Long) As GpStatus
@@ -2058,7 +2058,7 @@ Public Declare Function GdipCreateTextureIAI _
                Lib "gdiplus" (ByVal Image As Long, _
                               ByVal imageAttributes As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               texture As Long) As GpStatus
@@ -2122,7 +2122,7 @@ Public Declare Function GdipCreatePathGradientI_ _
                               ByVal WrapMd As WrapMode, _
                               polyGradient As Long) As GpStatus
 Public Declare Function GdipCreatePathGradientFromPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               polyGradient As Long) As GpStatus
 Public Declare Function GdipGetPathGradientCenterColor _
                Lib "gdiplus" (ByVal brush As Long, _
@@ -2140,10 +2140,10 @@ Public Declare Function GdipSetPathGradientSurroundColorsWithCount _
                               Count As Long) As GpStatus
 Public Declare Function GdipGetPathGradientPath _
                Lib "gdiplus" (ByVal brush As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 Public Declare Function GdipSetPathGradientPath _
                Lib "gdiplus" (ByVal brush As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 Public Declare Function GdipGetPathGradientCenterPoint _
                Lib "gdiplus" (ByVal brush As Long, _
                               Points As POINTF) As GpStatus
@@ -2278,19 +2278,19 @@ Public Declare Function GdipSetPathGradientFocusScales _
                               ByVal yScale As Single) As GpStatus
 Public Declare Function GdipCreatePath _
                Lib "gdiplus" (ByVal brushmode As FillMode, _
-                              path As Long) As GpStatus
+                              Path As Long) As GpStatus
 Public Declare Function GdipCreatePath2 _
                Lib "gdiplus" (Points As POINTF, _
                               Types As Any, _
                               ByVal Count As Long, _
                               brushmode As FillMode, _
-                              path As Long) As GpStatus
+                              Path As Long) As GpStatus
 Public Declare Function GdipCreatePath2I _
                Lib "gdiplus" (Points As POINTL, _
                               Types As Any, _
                               ByVal Count As Long, _
                               brushmode As FillMode, _
-                              path As Long) As GpStatus
+                              Path As Long) As GpStatus
 Public Declare Function GdipCreatePath2_ _
                Lib "gdiplus" _
                Alias "GdipCreatePath2" _
@@ -2298,7 +2298,7 @@ Public Declare Function GdipCreatePath2_ _
                               Types As Any, _
                               ByVal Count As Long, _
                               brushmode As FillMode, _
-                              path As Long) As GpStatus
+                              Path As Long) As GpStatus
 Public Declare Function GdipCreatePath2I_ _
                Lib "gdiplus" _
                Alias "GdipCreatePath2I" _
@@ -2306,85 +2306,85 @@ Public Declare Function GdipCreatePath2I_ _
                               Types As Any, _
                               ByVal Count As Long, _
                               brushmode As FillMode, _
-                              path As Long) As GpStatus
+                              Path As Long) As GpStatus
 Public Declare Function GdipClonePath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               clonePath As Long) As GpStatus
-Public Declare Function GdipDeletePath Lib "gdiplus" (ByVal path As Long) As GpStatus
-Public Declare Function GdipResetPath Lib "gdiplus" (ByVal path As Long) As GpStatus
+Public Declare Function GdipDeletePath Lib "gdiplus" (ByVal Path As Long) As GpStatus
+Public Declare Function GdipResetPath Lib "gdiplus" (ByVal Path As Long) As GpStatus
 Public Declare Function GdipGetPointCount _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Count As Long) As GpStatus
 Public Declare Function GdipGetPathTypes _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Types As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipGetPathPoints _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipGetPathPointsI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipGetPathPoints_ _
                Lib "gdiplus" _
                Alias "GdipGetPathPoints" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipGetPathPointsI_ _
                Lib "gdiplus" _
                Alias "GdipGetPathPointsI" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipGetPathFillMode _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal brushmode As FillMode) As GpStatus
 Public Declare Function GdipSetPathFillMode _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal brushmode As FillMode) As GpStatus
 Public Declare Function GdipGetPathData _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               pData As PathData) As GpStatus
-Public Declare Function GdipStartPathFigure Lib "gdiplus" (ByVal path As Long) As GpStatus
-Public Declare Function GdipClosePathFigure Lib "gdiplus" (ByVal path As Long) As GpStatus
+Public Declare Function GdipStartPathFigure Lib "gdiplus" (ByVal Path As Long) As GpStatus
+Public Declare Function GdipClosePathFigure Lib "gdiplus" (ByVal Path As Long) As GpStatus
 Public Declare Function GdipClosePathFigures _
-               Lib "gdiplus" (ByVal path As Long) As GpStatus
-Public Declare Function GdipSetPathMarker Lib "gdiplus" (ByVal path As Long) As GpStatus
+               Lib "gdiplus" (ByVal Path As Long) As GpStatus
+Public Declare Function GdipSetPathMarker Lib "gdiplus" (ByVal Path As Long) As GpStatus
 Public Declare Function GdipClearPathMarkers _
-               Lib "gdiplus" (ByVal path As Long) As GpStatus
-Public Declare Function GdipReversePath Lib "gdiplus" (ByVal path As Long) As GpStatus
+               Lib "gdiplus" (ByVal Path As Long) As GpStatus
+Public Declare Function GdipReversePath Lib "gdiplus" (ByVal Path As Long) As GpStatus
 Public Declare Function GdipGetPathLastPoint _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               lastPoint As POINTF) As GpStatus
 Public Declare Function GdipAddPathLine _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X1 As Single, _
                               ByVal Y1 As Single, _
                               ByVal X2 As Single, _
                               ByVal Y2 As Single) As GpStatus
 Public Declare Function GdipAddPathLine2 _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathLine2_ _
                Lib "gdiplus" _
                Alias "GdipAddPathLine2" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathArc _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal startAngle As Single, _
                               ByVal sweepAngle As Single) As GpStatus
 Public Declare Function GdipAddPathBezier _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X1 As Single, _
                               ByVal Y1 As Single, _
                               ByVal X2 As Single, _
@@ -2394,57 +2394,57 @@ Public Declare Function GdipAddPathBezier _
                               ByVal x4 As Single, _
                               ByVal y4 As Single) As GpStatus
 Public Declare Function GdipAddPathBeziers _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve2 _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathCurve3 _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long, _
                               ByVal offset As Long, _
                               ByVal numberOfSegments As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathClosedCurve _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathClosedCurve2 _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathBeziers_ _
                Lib "gdiplus" _
                Alias "GdipAddPathBeziers" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurve" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve2_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurve2" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathCurve3_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurve3" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal offset As Long, _
@@ -2453,98 +2453,98 @@ Public Declare Function GdipAddPathCurve3_ _
 Public Declare Function GdipAddPathClosedCurve_ _
                Lib "gdiplus" _
                Alias "GdipAddPathClosedCurve" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathClosedCurve2_ _
                Lib "gdiplus" _
                Alias "GdipAddPathClosedCurve2" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathRectangle _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipAddPathRectangles _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               RECT As RECTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathEllipse _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single) As GpStatus
 Public Declare Function GdipAddPathPie _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal startAngle As Single, _
                               ByVal sweepAngle As Single) As GpStatus
 Public Declare Function GdipAddPathPolygon _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTF, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathPolygon_ _
                Lib "gdiplus" _
                Alias "GdipAddPathPolygon" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal addingPath As Long, _
                               ByVal bConnect As Long) As GpStatus
 Public Declare Function GdipAddPathString _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal family As Long, _
                               ByVal style As FontStyle, _
                               ByVal emSize As Single, _
                               layoutRect As RECTF, _
                               ByVal StringFormat As Long) As GpStatus
 Public Declare Function GdipAddPathStringI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal family As Long, _
                               ByVal style As FontStyle, _
                               ByVal emSize As Single, _
                               layoutRect As RECTL, _
                               ByVal StringFormat As Long) As GpStatus
 Public Declare Function GdipAddPathLineI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X1 As Long, _
                               ByVal Y1 As Long, _
                               ByVal X2 As Long, _
                               ByVal Y2 As Long) As GpStatus
 Public Declare Function GdipAddPathLine2I _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathLine2I_ _
                Lib "gdiplus" _
                Alias "GdipAddPathLine2I" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathArcI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal startAngle As Single, _
                               ByVal sweepAngle As Single) As GpStatus
 Public Declare Function GdipAddPathBezierI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X1 As Long, _
                               ByVal Y1 As Long, _
                               ByVal X2 As Long, _
@@ -2554,57 +2554,57 @@ Public Declare Function GdipAddPathBezierI _
                               ByVal x4 As Long, _
                               ByVal y4 As Long) As GpStatus
 Public Declare Function GdipAddPathBeziersI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurveI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve2I _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long, _
                               ByVal tension As Long) As GpStatus
 Public Declare Function GdipAddPathCurve3I _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long, _
                               ByVal offset As Long, _
                               ByVal numberOfSegments As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathClosedCurveI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathClosedCurve2I _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathBeziersI_ _
                Lib "gdiplus" _
                Alias "GdipAddPathBeziersI" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurveI_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurveI" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathCurve2I_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurve2I" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal tension As Long) As GpStatus
 Public Declare Function GdipAddPathCurve3I_ _
                Lib "gdiplus" _
                Alias "GdipAddPathCurve3I" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal offset As Long, _
@@ -2613,56 +2613,56 @@ Public Declare Function GdipAddPathCurve3I_ _
 Public Declare Function GdipAddPathClosedCurveI_ _
                Lib "gdiplus" _
                Alias "GdipAddPathClosedCurveI" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathClosedCurve2I_ _
                Lib "gdiplus" _
                Alias "GdipAddPathClosedCurve2I" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
                               ByVal tension As Single) As GpStatus
 Public Declare Function GdipAddPathRectangleI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 Public Declare Function GdipAddPathRectanglesI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               rects As RECTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathEllipseI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long) As GpStatus
 Public Declare Function GdipAddPathPieI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal startAngle As Single, _
                               ByVal sweepAngle As Single) As GpStatus
 Public Declare Function GdipAddPathPolygonI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Points As POINTL, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipAddPathPolygonI_ _
                Lib "gdiplus" _
                Alias "GdipAddPathPolygonI" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               Points As Any, _
                               ByVal Count As Long) As GpStatus
 Public Declare Function GdipFlattenPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Optional ByVal matrix As Long = 0, _
                               Optional ByVal flatness As Single = 0.25) As GpStatus
 Public Declare Function GdipWindingModeOutline _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal matrix As Long, _
                               ByVal flatness As Single) As GpStatus
 Public Declare Function GdipWidenPath _
@@ -2671,7 +2671,7 @@ Public Declare Function GdipWidenPath _
                               ByVal matrix As Long, _
                               ByVal flatness As Single) As GpStatus
 Public Declare Function GdipWarpPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal matrix As Long, _
                               Points As POINTF, _
                               ByVal Count As Long, _
@@ -2684,7 +2684,7 @@ Public Declare Function GdipWarpPath _
 Public Declare Function GdipWarpPath_ _
                Lib "gdiplus" _
                Alias "GdipWarpPath" _
-                             (ByVal path As Long, _
+                             (ByVal Path As Long, _
                               ByVal matrix As Long, _
                               Points As Any, _
                               ByVal Count As Long, _
@@ -2695,47 +2695,47 @@ Public Declare Function GdipWarpPath_ _
                               ByVal WarpMd As WarpMode, _
                               ByVal flatness As Single) As GpStatus
 Public Declare Function GdipTransformPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal matrix As Long) As GpStatus
 Public Declare Function GdipGetPathWorldBounds _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Bounds As RECTF, _
                               ByVal matrix As Long, _
                               ByVal Pen As Long) As GpStatus
 Public Declare Function GdipGetPathWorldBoundsI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               Bounds As RECTL, _
                               ByVal matrix As Long, _
                               ByVal Pen As Long) As GpStatus
 Public Declare Function GdipIsVisiblePathPoint _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisiblePathPointI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsOutlineVisiblePathPoint _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Pen As Long, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsOutlineVisiblePathPointI _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Pen As Long, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipCreatePathIter _
                Lib "gdiplus" (iterator As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 Public Declare Function GdipDeletePathIter _
                Lib "gdiplus" (ByVal iterator As Long) As GpStatus
 Public Declare Function GdipPathIterNextSubpath _
@@ -2747,7 +2747,7 @@ Public Declare Function GdipPathIterNextSubpath _
 Public Declare Function GdipPathIterNextSubpathPath _
                Lib "gdiplus" (ByVal iterator As Long, _
                               resultCount As Long, _
-                              ByVal path As Long, _
+                              ByVal Path As Long, _
                               isClosed As Long) As GpStatus
 Public Declare Function GdipPathIterNextPathType _
                Lib "gdiplus" (ByVal iterator As Long, _
@@ -2763,7 +2763,7 @@ Public Declare Function GdipPathIterNextMarker _
 Public Declare Function GdipPathIterNextMarkerPath _
                Lib "gdiplus" (ByVal iterator As Long, _
                               resultCount As Long, _
-                              ByVal path As Long) As GpStatus
+                              ByVal Path As Long) As GpStatus
 Public Declare Function GdipPathIterGetCount _
                Lib "gdiplus" (ByVal iterator As Long, _
                               Count As Long) As GpStatus
@@ -2922,11 +2922,11 @@ Public Declare Function GdipCreateRegionRectI _
                Lib "gdiplus" (RECT As RECTL, _
                               region As Long) As GpStatus
 Public Declare Function GdipCreateRegionPath _
-               Lib "gdiplus" (ByVal path As Long, _
+               Lib "gdiplus" (ByVal Path As Long, _
                               region As Long) As GpStatus
 Public Declare Function GdipCreateRegionRgnData _
                Lib "gdiplus" (regionData As Any, _
-                              ByVal Size As Long, _
+                              ByVal size As Long, _
                               region As Long) As GpStatus
 Public Declare Function GdipCreateRegionHrgn _
                Lib "gdiplus" (ByVal hRgn As Long, _
@@ -2947,7 +2947,7 @@ Public Declare Function GdipCombineRegionRectI _
                               ByVal CombineMd As CombineMode) As GpStatus
 Public Declare Function GdipCombineRegionPath _
                Lib "gdiplus" (ByVal region As Long, _
-                              ByVal path As Long, _
+                              ByVal Path As Long, _
                               ByVal CombineMd As CombineMode) As GpStatus
 Public Declare Function GdipCombineRegionRegion _
                Lib "gdiplus" (ByVal region As Long, _
@@ -3000,19 +3000,19 @@ Public Declare Function GdipGetRegionData _
 Public Declare Function GdipIsVisibleRegionPoint _
                Lib "gdiplus" (ByVal region As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisibleRegionPointI _
                Lib "gdiplus" (ByVal region As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Graphics As Long, _
                               result As Long) As GpStatus
 Public Declare Function GdipIsVisibleRegionRect _
                Lib "gdiplus" (ByVal region As Long, _
                               ByVal X As Single, _
-                              ByVal Y As Single, _
+                              ByVal y As Single, _
                               ByVal Width As Single, _
                               ByVal Height As Single, _
                               ByVal Graphics As Long, _
@@ -3020,7 +3020,7 @@ Public Declare Function GdipIsVisibleRegionRect _
 Public Declare Function GdipIsVisibleRegionRectI _
                Lib "gdiplus" (ByVal region As Long, _
                               ByVal X As Long, _
-                              ByVal Y As Long, _
+                              ByVal y As Long, _
                               ByVal Width As Long, _
                               ByVal Height As Long, _
                               ByVal Graphics As Long, _
@@ -3108,7 +3108,7 @@ Public Declare Function GdipGetImageAttributesAdjustedPalette _
                               colorPal As ColorPalette, _
                               ByVal ClrAdjType As ColorAdjustType) As GpStatus
 Public Declare Function GdipCreateFontFamilyFromName _
-               Lib "gdiplus" (ByVal name As Long, _
+               Lib "gdiplus" (ByVal Name As Long, _
                               ByVal fontCollection As Long, _
                               fontFamily As Long) As GpStatus
 Public Declare Function GdipDeleteFontFamily _
@@ -3124,7 +3124,7 @@ Public Declare Function GdipGetGenericFontFamilyMonospace _
                Lib "gdiplus" (nativeFamily As Long) As GpStatus
 Public Declare Function GdipGetFamilyName _
                Lib "gdiplus" (ByVal family As Long, _
-                              ByVal name As Long, _
+                              ByVal Name As Long, _
                               ByVal language As Integer) As GpStatus
 Public Declare Function GdipIsStyleAvailable _
                Lib "gdiplus" (ByVal family As Long, _
@@ -3185,7 +3185,7 @@ Public Declare Function GdipGetFontStyle _
                               style As FontStyle) As GpStatus
 Public Declare Function GdipGetFontSize _
                Lib "gdiplus" (ByVal curFont As Long, _
-                              Size As Single) As GpStatus
+                              size As Single) As GpStatus
 Public Declare Function GdipGetFontUnit _
                Lib "gdiplus" (ByVal curFont As Long, _
                               unit As GpUnit) As GpStatus
@@ -3225,11 +3225,11 @@ Public Declare Function GdipPrivateAddFontFile _
 Public Declare Function GdipPrivateAddMemoryFont _
                Lib "gdiplus" (ByVal fontCollection As Long, _
                               ByVal memory As Long, _
-                              ByVal length As Long) As GpStatus
+                              ByVal Length As Long) As GpStatus
 Public Declare Function GdipDrawString _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               layoutRect As RECTF, _
                               ByVal StringFormat As Long, _
@@ -3237,7 +3237,7 @@ Public Declare Function GdipDrawString _
 Public Declare Function GdipMeasureString _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               layoutRect As RECTF, _
                               ByVal StringFormat As Long, _
@@ -3247,7 +3247,7 @@ Public Declare Function GdipMeasureString _
 Public Declare Function GdipMeasureCharacterRanges _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               layoutRect As RECTF, _
                               ByVal StringFormat As Long, _
@@ -3256,7 +3256,7 @@ Public Declare Function GdipMeasureCharacterRanges _
 Public Declare Function GdipDrawDriverString _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               ByVal brush As Long, _
                               positions As POINTF, _
@@ -3265,7 +3265,7 @@ Public Declare Function GdipDrawDriverString _
 Public Declare Function GdipMeasureDriverString _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               positions As POINTF, _
                               ByVal flags As Long, _
@@ -3276,7 +3276,7 @@ Public Declare Function GdipDrawDriverString_ _
                Alias "GdipDrawDriverString" _
                              (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               ByVal brush As Long, _
                               positions As Any, _
@@ -3287,7 +3287,7 @@ Public Declare Function GdipMeasureDriverString_ _
                Alias "GdipMeasureDriverString" _
                              (ByVal Graphics As Long, _
                               ByVal Str As Long, _
-                              ByVal length As Long, _
+                              ByVal Length As Long, _
                               ByVal thefont As Long, _
                               positions As Any, _
                               ByVal flags As Long, _
@@ -3483,7 +3483,7 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
     End Type
 
     Public Type ImageItemData
-        Size     As Long
+        size     As Long
         position As Long
         pDesc    As Long
         DescSize As Long
@@ -3493,12 +3493,12 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
     End Type
 
     Public Type SharpenParams
-        radius As Single
+        Radius As Single
         amount As Single
     End Type
 
     Public Type BlurParams
-        radius     As Single
+        Radius     As Single
         expandEdge As Long
     End Type
 
@@ -3553,20 +3553,20 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
                                   ByVal Guid42 As Long, _
                                   ByVal Guid43 As Long, _
                                   ByVal Guid44 As Long, _
-                                  effect As Long) As GpStatus
+                                  Effect As Long) As GpStatus
                                   
     Public Declare Function GdipDeleteEffect _
-                   Lib "gdiplus" (ByVal effect As Long) As GpStatus
+                   Lib "gdiplus" (ByVal Effect As Long) As GpStatus
     Public Declare Function GdipGetEffectParameterSize _
-                   Lib "gdiplus" (ByVal effect As Long, _
-                                  Size As Long) As GpStatus
+                   Lib "gdiplus" (ByVal Effect As Long, _
+                                  size As Long) As GpStatus
     Public Declare Function GdipSetEffectParameters _
-                   Lib "gdiplus" (ByVal effect As Long, _
+                   Lib "gdiplus" (ByVal Effect As Long, _
                                   Params As Any, _
-                                  ByVal Size As Long) As GpStatus
+                                  ByVal size As Long) As GpStatus
     Public Declare Function GdipGetEffectParameters _
-                   Lib "gdiplus" (ByVal effect As Long, _
-                                  Size As Long, _
+                   Lib "gdiplus" (ByVal Effect As Long, _
+                                  size As Long, _
                                   Params As Any) As GpStatus
 
     Public Declare Function GdipImageSetAbort _
@@ -3590,7 +3590,7 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
                                   Optional ByVal bitmap As Long) As GpStatus
     Public Declare Function GdipBitmapApplyEffect _
                    Lib "gdiplus" (ByVal bitmap As Long, _
-                                  ByVal effect As Long, _
+                                  ByVal Effect As Long, _
                                   roi As RECTL, _
                                   ByVal useAuxData As Long, _
                                   auxData As Any, _
@@ -3598,7 +3598,7 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
     Public Declare Function GdipBitmapCreateApplyEffect _
                    Lib "gdiplus" (inputBitmaps As Any, _
                                   ByVal numInputs As Long, _
-                                  ByVal effect As Long, _
+                                  ByVal Effect As Long, _
                                   roi As RECTL, _
                                   outputRect As RECTL, _
                                   outputBitmap As Long, _
@@ -3632,7 +3632,7 @@ Public Const TintEffectGuid                   As String = "{1077AF00-2848-4441-9
                                   ByVal Image As Long, _
                                   Source As RECTF, _
                                   ByVal xForm As Long, _
-                                  ByVal effect As Long, _
+                                  ByVal Effect As Long, _
                                   ByVal imageAttributes As Long, _
                                   ByVal srcUnit As GpUnit) As GpStatus
 
@@ -3760,13 +3760,13 @@ End Type
 
 Public Type MetafileHeader
     mType             As MetafileType
-    Size              As Long           ' Size of the metafile (in bytes)
+    size              As Long           ' Size of the metafile (in bytes)
     Version           As Long           ' EMF+, EMF, or WMF version
     EmfPlusFlags      As Long
     DpiX              As Single
     DpiY              As Single
     X                 As Long           ' Bounds in device units
-    Y                 As Long
+    y                 As Long
     Width             As Long
     Height            As Long
 
@@ -3780,7 +3780,7 @@ End Type
 'Other
 Public Type PropertyItem
     propId As Long              ' ID of this property
-    length As Long              ' Length of the property value, in bytes
+    Length As Long              ' Length of the property value, in bytes
 
     Type   As Integer           ' Type of the value, as one of TAG_TYPE_XXX
                                 ' defined above
@@ -3789,7 +3789,7 @@ End Type
 
 Public Type CharacterRange
     first  As Long
-    length As Long
+    Length As Long
 End Type
 
 '=================================
@@ -5120,7 +5120,7 @@ Public Declare Function GdipGetMetafileDownLevelRasterizationLimit _
                               metafileRasterizationLimitDpi As Long) As GpStatus
 Public Declare Function GdipGetImageDecodersSize _
                Lib "gdiplus" (numDecoders As Long, _
-                              Size As Long) As GpStatus
+                              size As Long) As GpStatus
 Public Declare Function GdipSetImageAttributesCachedBackground _
                Lib "gdiplus" (ByVal imageattr As Long, _
                               ByVal enableFlag As Long) As GpStatus
@@ -5156,7 +5156,7 @@ Public Declare Function GdipTestControl _
 Public Declare Function GdipFlush _
                Lib "gdiplus" (ByVal Graphics As Long, _
                               ByVal intention As FlushIntention) As GpStatus
-Public Declare Function GdipAlloc Lib "gdiplus" (ByVal Size As Long) As Long
+Public Declare Function GdipAlloc Lib "gdiplus" (ByVal size As Long) As Long
 Public Declare Sub GdipFree Lib "gdiplus" (ByVal ptr As Long)
 
 '===================================================================================
@@ -5335,17 +5335,17 @@ Public Function NewRectL(ByVal Left As Single, _
 End Function
 
 Public Function NewPointF(ByVal X As Single, _
-                          ByVal Y As Single) As POINTF
+                          ByVal y As Single) As POINTF
 
     NewPointF.X = X
-    NewPointF.Y = Y
+    NewPointF.y = y
 End Function
 
 Public Function NewPointL(ByVal X As Single, _
-                          ByVal Y As Single) As POINTL
+                          ByVal y As Single) As POINTL
 
     NewPointL.X = X
-    NewPointL.Y = Y
+    NewPointL.y = y
 End Function
 
 Public Function NewPointsFPtr(ParamArray ptXY()) As Long
@@ -5356,7 +5356,7 @@ Public Function NewPointsFPtr(ParamArray ptXY()) As Long
     
     For I = 0 To UBound(ptXY) Step 2
         Ret(I \ 2).X = ptXY(I)
-        Ret(I \ 2).Y = ptXY(I + 1)
+        Ret(I \ 2).y = ptXY(I + 1)
     Next
     
     NewPointsFPtr = VarPtr(Ret(0))
@@ -5374,7 +5374,7 @@ Public Function NewPointsLPtr(ParamArray ptXY()) As Long
     
     For I = 0 To UBound(ptXY) Step 2
         Ret(I \ 2).X = ptXY(I)
-        Ret(I \ 2).Y = ptXY(I + 1)
+        Ret(I \ 2).y = ptXY(I + 1)
     Next
     
     NewPointsLPtr = VarPtr(Ret(0))
@@ -5465,19 +5465,19 @@ End Sub
 
 #If GdipVersion >= 1.1 Then
 
-Public Sub GdipCreateEffect2(ByVal EffectType As GdipEffectType, effect As Long)
+Public Sub GdipCreateEffect2(ByVal EffectType As GdipEffectType, Effect As Long)
     Select Case EffectType
-        Case GdipEffectType.Blur:                   GdipCreateEffect &H633C80A4, &H482B1843, &H28BEF29E, &HD4FDC534, effect 'CLSIDFromString StrPtr(BlurEffectGuid), GetEffectClsid
-        Case GdipEffectType.BrightnessContrast:     GdipCreateEffect &HD3A1DBE1, &H4C178EC4, &H97EA4C9F, &H3D341CAD, effect 'CLSIDFromString StrPtr(BrightnessContrastEffectGuid), GetEffectClsid
-        Case GdipEffectType.ColorBalance:           GdipCreateEffect &H537E597D, &H48DA251E, &HCA296496, &HF8706B49, effect 'CLSIDFromString StrPtr(ColorBalanceEffectGuid), GetEffectClsid
-        Case GdipEffectType.ColorCurve:             GdipCreateEffect &HDD6A0022, &H4A6758E4, &H8ED49B9D, &H3DA581B8, effect 'CLSIDFromString StrPtr(ColorCurveEffectGuid), GetEffectClsid
-        Case GdipEffectType.ColorLookupTable:       GdipCreateEffect &HA7CE72A9, &H40D70F7F, &HC0D0CCB3, &H12325C2D, effect 'CLSIDFromString StrPtr(ColorLookupTableEffectGuid), GetEffectClsid
-        Case GdipEffectType.ColorMatrix:            GdipCreateEffect &H718F2615, &H40E37933, &H685F11A5, &H74DD14FE, effect 'CLSIDFromString StrPtr(ColorMatrixEffectGuid), GetEffectClsid
-        Case GdipEffectType.HueSaturationLightness: GdipCreateEffect &H8B2DD6C3, &H4D87EB07, &H871F0A5, &H5F9C6AE2, effect 'CLSIDFromString StrPtr(HueSaturationLightnessEffectGuid), GetEffectClsid
-        Case GdipEffectType.levels:                 GdipCreateEffect &H99C354EC, &H4F3A2A31, &HA817348C, &H253AB303, effect 'CLSIDFromString StrPtr(LevelsEffectGuid), GetEffectClsid
-        Case GdipEffectType.RedEyeCorrection:       GdipCreateEffect &H74D29D05, &H426669A4, &HC53C4995, &H32B63628, effect 'CLSIDFromString StrPtr(RedEyeCorrectionEffectGuid), GetEffectClsid
-        Case GdipEffectType.Sharpen:                GdipCreateEffect &H63CBF3EE, &H402CC526, &HC562718F, &H4251BF40, effect 'CLSIDFromString StrPtr(SharpenEffectGuid), GetEffectClsid
-        Case GdipEffectType.Tint:                   GdipCreateEffect &H1077AF00, &H44412848, &HAD448994, &H2C7A2D4C, effect 'CLSIDFromString StrPtr(TintEffectGuid), GetEffectClsid
+        Case GdipEffectType.Blur:                   GdipCreateEffect &H633C80A4, &H482B1843, &H28BEF29E, &HD4FDC534, Effect 'CLSIDFromString StrPtr(BlurEffectGuid), GetEffectClsid
+        Case GdipEffectType.BrightnessContrast:     GdipCreateEffect &HD3A1DBE1, &H4C178EC4, &H97EA4C9F, &H3D341CAD, Effect 'CLSIDFromString StrPtr(BrightnessContrastEffectGuid), GetEffectClsid
+        Case GdipEffectType.ColorBalance:           GdipCreateEffect &H537E597D, &H48DA251E, &HCA296496, &HF8706B49, Effect 'CLSIDFromString StrPtr(ColorBalanceEffectGuid), GetEffectClsid
+        Case GdipEffectType.ColorCurve:             GdipCreateEffect &HDD6A0022, &H4A6758E4, &H8ED49B9D, &H3DA581B8, Effect 'CLSIDFromString StrPtr(ColorCurveEffectGuid), GetEffectClsid
+        Case GdipEffectType.ColorLookupTable:       GdipCreateEffect &HA7CE72A9, &H40D70F7F, &HC0D0CCB3, &H12325C2D, Effect 'CLSIDFromString StrPtr(ColorLookupTableEffectGuid), GetEffectClsid
+        Case GdipEffectType.ColorMatrix:            GdipCreateEffect &H718F2615, &H40E37933, &H685F11A5, &H74DD14FE, Effect 'CLSIDFromString StrPtr(ColorMatrixEffectGuid), GetEffectClsid
+        Case GdipEffectType.HueSaturationLightness: GdipCreateEffect &H8B2DD6C3, &H4D87EB07, &H871F0A5, &H5F9C6AE2, Effect 'CLSIDFromString StrPtr(HueSaturationLightnessEffectGuid), GetEffectClsid
+        Case GdipEffectType.levels:                 GdipCreateEffect &H99C354EC, &H4F3A2A31, &HA817348C, &H253AB303, Effect 'CLSIDFromString StrPtr(LevelsEffectGuid), GetEffectClsid
+        Case GdipEffectType.RedEyeCorrection:       GdipCreateEffect &H74D29D05, &H426669A4, &HC53C4995, &H32B63628, Effect 'CLSIDFromString StrPtr(RedEyeCorrectionEffectGuid), GetEffectClsid
+        Case GdipEffectType.Sharpen:                GdipCreateEffect &H63CBF3EE, &H402CC526, &HC562718F, &H4251BF40, Effect 'CLSIDFromString StrPtr(SharpenEffectGuid), GetEffectClsid
+        Case GdipEffectType.Tint:                   GdipCreateEffect &H1077AF00, &H44412848, &HAD448994, &H2C7A2D4C, Effect 'CLSIDFromString StrPtr(TintEffectGuid), GetEffectClsid
     End Select
 End Sub
 
@@ -5506,16 +5506,12 @@ Public Function CreateBitmapWithGraphics(ByRef bitmap As Long, _
     GdipGetImageGraphicsContext bitmap, Graphics
 End Function
 
-Public Function argb(ByVal a As Long, ByVal r As Long, ByVal g As Long, ByVal b As Long) As Long
+Public Function argb(ByVal A As Byte, ByVal r As Byte, ByVal g As Byte, ByVal B As Byte) As Long
     Dim Color As Long
-    If r > 255 Then r = 255
-    If g > 255 Then g = 255
-    If b > 255 Then b = 255
-    If a = 0 And r = 0 And g = 0 And b = 0 Then r = 1
     
-    CopyMemory ByVal VarPtr(Color) + 3, a, 1
+    CopyMemory ByVal VarPtr(Color) + 3, A, 1
     CopyMemory ByVal VarPtr(Color) + 2, r, 1
     CopyMemory ByVal VarPtr(Color) + 1, g, 1
-    CopyMemory ByVal VarPtr(Color), b, 1
+    CopyMemory ByVal VarPtr(Color), B, 1
     argb = Color
 End Function

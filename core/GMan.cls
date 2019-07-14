@@ -36,10 +36,10 @@ Dim IsLayered As Boolean
         ReDim Pages(0)
         CDC = CreateCDC(GW, GH)
         ODC = CreateCDC(GW, GH)
-        GdipCreateFromHDC CDC, GG
+        PoolCreateFromHdc CDC, GG
         GdipSetSmoothingMode GG, SmoothingModeAntiAlias
         GdipSetTextRenderingHint GG, TextRenderingHintAntiAlias
-        GdipCreateSolidFill argb(255, 255, 255, 255), pB
+        PoolCreateSolidFill argb(255, 255, 255, 255), pB
     End Sub
     Public Sub Layered(Optional WithAero As Boolean = False)
         SetWindowLongA GHwnd, GWL_EXSTYLE, GetWindowLongA(GHwnd, GWL_EXSTYLE) Or WS_EX_LAYERED
@@ -47,13 +47,13 @@ Dim IsLayered As Boolean
         IsLayered = True
     End Sub
     Public Sub Dispose()
-        GdipDeleteGraphics GG
-        GdipDeleteBrush pB
+        PoolDeleteGraphics GG
+        PoolDeleteBrush pB
         For i = 1 To UBound(Pages)
             Pages(i).p.Dispose
         Next
-        DeleteObject CDC
-        DeleteObject ODC
+        'DeleteObject CDC
+        'DeleteObject ODC
     End Sub
 '========================================================
 '   Manager
@@ -129,7 +129,7 @@ skipPage:
         If GetTickCount - Transform.time <= Transform.during Then Call Translation
         
         If IsLayered Then
-            Dim bs As BLENDFUNCTION, sz As size
+            Dim bs As BLENDFUNCTION, sz As Size
             Dim SrcPoint As POINTAPI
             With bs
                 .AlphaFormat = AC_SRC_ALPHA
@@ -235,6 +235,22 @@ skipPage:
                         GdipSetSolidFillColor pB, argb((1 - pro) * 255, 0, 0, 0)
                         GdipFillRectangle GG, pB, 0, 0, GW, GH
                 End Select
+            Case 12
+                pro = Cubic((GetTickCount - Transform.time) / Transform.during, 0, 1, 1, 1)
+                BitBlt CDC, GW - (pro * GW), 0, GW, GH, CDC, 0, 0, vbSrcCopy
+                GdipSetSolidFillColor pB, argb((1 - pro) * 255, 0, 0, 0)
+                GdipFillRectangle GG, pB, GW - (pro * GW), 0, GW, GH
+                PaintDC ODC, CDC, -(pro * GW), 0, alpha:=1
+                GdipSetSolidFillColor pB, argb(pro * 255, 0, 0, 0)
+                GdipFillRectangle GG, pB, -(pro * GW), 0, GW, GH
+            Case 13
+                pro = Cubic((GetTickCount - Transform.time) / Transform.during, 0, 1, 1, 1)
+                BitBlt CDC, -GW + (pro * GW), 0, GW, GH, CDC, 0, 0, vbSrcCopy
+                GdipSetSolidFillColor pB, argb((1 - pro) * 255, 0, 0, 0)
+                GdipFillRectangle GG, pB, -GW + (pro * GW), 0, GW, GH
+                PaintDC ODC, CDC, (pro * GW), 0, alpha:=1
+                GdipSetSolidFillColor pB, argb(pro * 255, 0, 0, 0)
+                GdipFillRectangle GG, pB, (pro * GW), 0, GW, GH
         End Select
     End Sub
 '========================================================
